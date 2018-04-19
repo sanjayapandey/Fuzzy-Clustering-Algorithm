@@ -88,51 +88,7 @@ public class Point {
 		return String.valueOf(id);
 		//return id+"("+p1+","+p2+","+p3+","+p4+","+p5+","+p6+","+p7+","+p8+","+p9+","+p10+","+p11+","+p12+","+p13+")";
 	}
-	
-	public static void main(String[] args) {
-		String[] cpdomains = new String[2]; 
-		cpdomains[0]="900 google.mail.com";
-		cpdomains[1]="50 yahoo.com";
-		subdomainVisits(cpdomains);
-	}
-	public static List<String> subdomainVisits(String[] cpdomains) {
-        Map<String,Integer> map = new HashMap<>();
-        for(int i=0;i<cpdomains.length;i++){
-           
-            String[] arr = cpdomains[i].split("\\s");
-            if(map.containsKey(arr[1])){
-                map.put(arr[1],(Integer)map.get(arr[1])+Integer.getInteger(arr[0]));
-            }else{
-            	System.out.println(arr[0]);
-                map.put(arr[1],Integer.getInteger(arr[0]));
-            }
-            //first 
-            String[] arr1 = arr[1].split(".",2);
-             if(map.containsKey(arr1[1])){
-            	 map.put(arr1[1],(Integer)map.get(arr1[1])+Integer.getInteger(arr[0]));
-	            }else{
-	                map.put(arr1[1],Integer.getInteger(arr[0]));
-	            }
-        
-            //second
-            String[] arr2 = arr1[1].split(".", 2);
-             if(map.containsKey(arr2[1])){
-            	 map.put(arr2[1],(Integer)map.get(arr2[1])+Integer.getInteger(arr[0]));
-	            }else{
-	                map.put(arr2[1],Integer.getInteger(arr[0]));
-	            }
-             System.out.println(arr2[1]);
 
-        }
-        List<String> output = new ArrayList<>();
-        for (Map.Entry<String, Integer> entry : map.entrySet()) {
-            String key = entry.getKey();
-            System.out.println(key);
-            int value = entry.getValue();
-            output.add(value+" "+key);
-            System.out.println(value+" "+key);
-        }
-    return output;
 }
 	
 }
